@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  mapper의 네임스페이스 먼저 지정! (이 매퍼파일의 고유 별칭같은것) -->
+<mapper namespace="memberMapper">
+
+	<!-- 
+		* resultMap : 마이바티스의 핵심적인 기능 중 하나!
+					    조회 결과를 어떤 객체에 매핑시켜서 반환할건지 정의해두는 태그
+		 - id : 각 resultMap 마다의 고유 식별자
+		 - type : ResultSet에 조회된 값 뽑아서 어떤 타입의 vo객체 담아서 반환할 건지(풀네임 또는 별칭)
+	
+	 -->
+	<resultMap id="memberResultSet" type="Member">
+		<result column="컬럼명" property="필드명"/>
+	</resultMap>
+	
+
+	<!-- < 주의사항 >
+		- mapper문서에서 실행하고자 하는 sql문에 맞춰서 태그를 제시
+		- DAO 에서 해당 이 sql문을 찾아서 실행할 수 있도록 각 sql문 마다 고유한 id값 부여
+		- 여기서도 마찬가지로 세미콜론 있어서는 안됨!
+		
+		쿼리문은 기본적으로 PreparedStatement임 
+		?(폴더) 대신에 해당 sql문에 전달 받은 객체의 값을 꺼내서 대체할 때 
+		#{필드명 또는 변수명}으로 값을 뽑아서 대체한다.  
+	-->
+	
+	
+	<insert id="insertMember" 
+			parameterType="com.kh.mybatis.member.model.vo.Member">
+		INSERT
+		  INTO MEMBER
+		  (
+		     USER_NO
+		    ,USER_ID
+		    ,USER_PWD
+		    ,USER_NAME
+		    ,EMAIL
+		    ,BIRTHDAY
+		    ,GENDER
+		    ,PHONE
+		    ,ADDRESS
+		  )
+		  VALUES
+		  (
+		     SEQ_UNO.NEXTVAL
+		   , #{userId}
+		   , #{userPwd}
+		   , #{userName}
+		   , #{email}
+		   , #{birthday}
+		   , #{gender}
+		   , #{phone}
+		   , #{address}
+		  )
+	      	
+	</insert>
+	
+<!-- 
+	* Select문
+	- id : 해당 sql문의 고유한 id값
+	- parameterType : 해당 sql문에 전달된 객체의 타입(풀네임)
+	- resultType/resultMap : 해당 select문을 실행한 결과를 반환할 타입
+							 즉, 조회된 결과(ResultSet)을 자바에서의 어떤 자료형에 담아서 반환할건지
+		
+				> resultType에 어떤 객체의 타입을 기술하게 되면
+				   조회된 결과가 해당 객체에  해당 필드에 매핑되서 리턴됨(단, DB컬럼명과 객체의 필드명이 일치할 경우)
+				  현재 상황을 보면 Member테이블의 컬럼명과 Member클래스의 필드명이 다르다.
+				  직접 어떤 컬럼의 값 뽑아서 어떤 필드에 담을껀지 mapping 시켜주면 됨 
+				  => resultMap태그를 통해서 정의 
+				  
+				  					 
+ -->
+	
+	
+	
+	
+	<!--  
+	<select id="" resultType="_int">
+		SELECT COUNT(*)
+		  FROM MEMBER
+	</select>
+	
+	<select id="" resultType="string">
+		SELECT USER_NAME
+	</select>
+	-->
+	<select id="loginMember" 
+			parameterType="com.kh.mybatis.member.model.vo.Member"
+			resultType="com.kh.mybatis.member.model.vo.Member">
+		SELECT
+			    USER_NO
+			  , USER_ID
+			  , USER_PWD
+			  , USER_NAME
+			  , EMAIL
+			  , BIRTHDAY
+			  , GENDER
+			  , PHONE
+			  , ADDRESS
+			  , ENROLL_DATE
+			  , MODIFY_DATE
+			  , STATUS
+		FROM	MEMBER
+		WHRER	STATUS='Y'
+		  AND	USER_ID=#{userId}
+		  AND 	USER_PWD=#{userPwd}
+	</select>
+</mapper>

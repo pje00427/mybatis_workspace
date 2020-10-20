@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  mapper의 네임스페이스 먼저 지정! (이 매퍼파일의 고유 별칭같은것) -->
+<mapper namespace="memberMapper">
+
+	<!-- 
+		- mapper문서에서 실행하고자 하는 sql문에 맞춰서 태그를 제시
+		- DAO 에서 해당 이 sql문을 찾아서 실행할 수 있도록 각 sql문 마다 고유한 id값 부여
+		- 여기서도 마찬가지로 세미콜론 있어서는 안됨! 
+	-->
+	
+	<insert id="insertMember">
+		INSERT
+	      INTO MEMBER
+	      (
+	      
+	      
+	      )
+	      	
+	</insert>
+	<select>
+	
+	</select>
+	<update>
+	
+	</update>
+</mapper>
