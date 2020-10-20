@@ -1,0 +1,24 @@
+package com.kh.mybatis.board.model.service;
+
+import java.util.ArrayList;
+
+import com.kh.mybatis.board.model.dao.BoardDao;
+import com.kh.mybatis.board.model.vo.Board;
+import com.kh.mybatis.common.vo.PageInfo;
+
+public class BoardServiceImpl implements BoardService{
+
+	private BoardDao bDao = new BoardDao();
+
+	@Override
+	public int selectListCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ArrayList<Board> selectList(PageInfo pi) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

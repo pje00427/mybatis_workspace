@@ -1,0 +1,8 @@
+package com.kh.mybatis.board.model.service;
+
+import com.kh.mybatis.board.model.dao.BoardDao;
+
+public class BoardServiceImpl implements BoardService{
+
+	private BoardDao bDao = new BoardDao();
+}

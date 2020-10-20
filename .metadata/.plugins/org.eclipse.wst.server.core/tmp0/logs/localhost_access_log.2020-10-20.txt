@@ -28,3 +28,12 @@
 0:0:0:0:0:0:0:1 - - [20/Oct/2020:10:33:53 +0900] "GET /mybatis/logout.me HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [20/Oct/2020:10:33:53 +0900] "GET /mybatis HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [20/Oct/2020:10:33:53 +0900] "GET /mybatis/ HTTP/1.1" 200 2358
+0:0:0:0:0:0:0:1 - - [20/Oct/2020:11:42:58 +0900] "GET /mybatis/ HTTP/1.1" 200 2407
+0:0:0:0:0:0:0:1 - - [20/Oct/2020:11:42:59 +0900] "GET /mybatis/list.bo?currentPage=1 HTTP/1.1" 404 826
+0:0:0:0:0:0:0:1 - - [20/Oct/2020:11:43:03 +0900] "GET /mybatis/list.bo?currentPage=1 HTTP/1.1" 404 826
+127.0.0.1 - - [20/Oct/2020:11:43:58 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [20/Oct/2020:11:43:59 +0900] "GET /mybatis/ HTTP/1.1" 200 2407
+0:0:0:0:0:0:0:1 - - [20/Oct/2020:11:44:03 +0900] "GET /mybatis/list.bo?currentPage=1 HTTP/1.1" 200 4768
+0:0:0:0:0:0:0:1 - - [20/Oct/2020:11:44:06 +0900] "GET /mybatis/list.bo?currentPage=1 HTTP/1.1" 200 4768
+0:0:0:0:0:0:0:1 - - [20/Oct/2020:11:44:10 +0900] "GET /mybatis/search.bo?condition=writer&keyword=%ED%99%8D%EB%8C%80 HTTP/1.1" 404 828
+0:0:0:0:0:0:0:1 - - [20/Oct/2020:11:44:14 +0900] "GET /mybatis/search.bo?condition=writer&keyword=%ED%99%8D%EB%8C%80 HTTP/1.1" 404 828
